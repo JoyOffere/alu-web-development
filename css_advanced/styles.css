@@ -14,9 +14,9 @@ header{
     margin-top: 35px;
 }
 .links{
-color: white;
-text-decoration: none;
-margin-right: 50px;
+    color: white;
+    text-decoration: none;
+    margin-right: 50px;
 }
 .feel {
     text-align: center;
@@ -217,34 +217,85 @@ span {
     width: 100;
     margin: 5% 0;
 }
- .second-btn{
+
+.second-btn{
     display: inline-block;
     justify-content: space-between;
     align-items: center;
     border: 1px solid #C271FF;
     border-radius: 22px;
     background: #C271FF;
-    box-shadow: 0px 2px 20px 0px;
-    width: 140px;
+    width: 160px;
     height: 44px;
-    margin-left: 
-    45%; 
+    margin-left: 40%; 
 } 
 
+.second-btn{
+    color: #FFF;
+}
+
 .faq{
-    background-color: #FFF;
-    width: 1000px;
-    height: 160px;
-    flex-shrink: 0;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.faq-head{
+    color: #071629;
+    text-align: center;
+    font-family: Source Sans Pro;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.faq-item{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    text-align: justify;
-    width: 100;
-    margin: 5% 0;
-    /* width: 920px;
-    height: 707px;
+    margin: 0 auto;
+    width: 50%;
+    gap: 30px;
+    justify-content: center;
+}
+.faq-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.faq-text{
+    color: rgba(7, 22, 41, 0.50);
+    width: 350px;
+    font-family: Source Sans Pro;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+}
+.footer{
+    background: #071629;
+    height: 249px;
     flex-shrink: 0;
+}
+.smile{
+    display: inline-flex;
+    padding-left: 10rem;
+    padding-right: 20rem;
+    justify-content: center;
     align-items: center;
-    display: inline-block; */
+}
+
+.socials-cont{
+    display: flex;
+    padding-top: 1rem;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+
+.copy-cont{
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    opacity: 0.3517;
 }
