@@ -1,34 +1,42 @@
-# Basic Authentication
+# Simple API
 
-Basic authentication is a simple authentication scheme built into the HTTP protocol. The client sends HTTP requests with the `Authorization` header that contains the word `Basic` followed by a space and a base64-encoded string `username:password`.
+Simple HTTP API for playing with `User` model.
 
-## How it works
 
-1. The client sends a request to the server.
-2. The server responds with a `401 Unauthorized` status and a `WWW-Authenticate` header.
-3. The client sends another request with the `Authorization` header containing the base64-encoded credentials.
-4. The server decodes the credentials and checks if they are valid.
-5. If valid, the server responds with the requested resource; otherwise, it responds with `401 Unauthorized`.
+## Files
 
-## Example
+### `models/`
 
-Here is an example of a request with basic authentication:
+- `base.py`: base of all models of the API - handle serialization to file
+- `user.py`: user model
+
+### `api/v1`
+
+- `app.py`: entry point of the API
+- `views/index.py`: basic endpoints of the API: `/status` and `/stats`
+- `views/users.py`: all users endpoints
+
+
+## Setup
 
 ```
-GET /protected-resource HTTP/1.1
-Host: example.com
-Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+$ pip3 install -r requirements.txt
 ```
 
-In this example, `dXNlcm5hbWU6cGFzc3dvcmQ=` is the base64-encoded string for `username:password`.
 
-## Security Considerations
+## Run
 
-- Basic authentication is not secure over plain HTTP as the credentials can be easily intercepted.
-- Always use HTTPS to encrypt the credentials.
-- Consider using more secure authentication methods like OAuth or token-based authentication.
+```
+$ API_HOST=0.0.0.0 API_PORT=5000 python3 -m api.v1.app
+```
 
-## References
 
-- [MDN Web Docs: HTTP Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
-- [RFC 7617: The 'Basic' HTTP Authentication Scheme](https://tools.ietf.org/html/rfc7617)
+## Routes
+
+- `GET /api/v1/status`: returns the status of the API
+- `GET /api/v1/stats`: returns some stats of the API
+- `GET /api/v1/users`: returns the list of users
+- `GET /api/v1/users/:id`: returns an user based on the ID
+- `DELETE /api/v1/users/:id`: deletes an user based on the ID
+- `POST /api/v1/users`: creates a new user (JSON parameters: `email`, `password`, `last_name` (optional) and `first_name` (optional))
+- `PUT /api/v1/users/:id`: updates an user based on the ID (JSON parameters: `last_name` and `first_name`)
